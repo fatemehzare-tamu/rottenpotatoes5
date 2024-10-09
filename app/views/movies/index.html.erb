@@ -3,10 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Rating</th>
+      <th>
+        <%= link_to "Title", movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      </th>
+      <th>
+        <%= link_to "Rating", movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      </th>
       <th>Description</th>
-      <th>Release Date</th>
+      <th>
+        <%= link_to "Release Date", movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      </th>
     </tr>
   </thead>
   <tbody>
