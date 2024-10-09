@@ -1,24 +1,26 @@
 <h1>Listing Movies</h1>
+<%= link_to 'Add New Movie', new_movie_path, class: 'btn btn-primary' %>
 
 <table style="width: 100%; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f8f9fa;">
-      <th class="<%= 'highlight' if params[:sort] == 'title' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'title' %>">
-        <%= link_to "Title #{sort_indicator('title', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if session[:sort] == 'title' %>" 
+          data-direction="<%= session[:direction] if session[:sort] == 'title' %>">
+        <%= link_to "Title #{sort_indicator('title', session[:sort], session[:direction])}".html_safe, 
+                    movies_path(sort: 'title', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
-      <th class="<%= 'highlight' if params[:sort] == 'rating' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'rating' %>">
-        <%= link_to "Rating #{sort_indicator('rating', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if session[:sort] == 'rating' %>" 
+          data-direction="<%= session[:direction] if session[:sort] == 'rating' %>">
+        <%= link_to "Rating #{sort_indicator('rating', session[:sort], session[:direction])}".html_safe, 
+                    movies_path(sort: 'rating', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
       <th>Description</th>
-      <th class="<%= 'highlight' if params[:sort] == 'release_date' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'release_date' %>">
-        <%= link_to "Release Date #{sort_indicator('release_date', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if session[:sort] == 'release_date' %>" 
+          data-direction="<%= session[:direction] if session[:sort] == 'release_date' %>">
+        <%= link_to "Release Date #{sort_indicator('release_date', session[:sort], session[:direction])}".html_safe, 
+                    movies_path(sort: 'release_date', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +30,10 @@
         <td style="padding: 8px;"><%= movie.rating %></td>
         <td style="padding: 8px;"><%= movie.description %></td>
         <td style="padding: 8px;"><%= movie.release_date %></td>
+        <td style="padding: 8px;">
+          <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-secondary' %>
+          <%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

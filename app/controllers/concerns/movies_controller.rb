@@ -1,11 +1,23 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-  
-    if params[:sort].present? && params[:direction].present?
-      @movies = @movies.order("#{params[:sort]} #{params[:direction]}")
-    end
+    # If sort or direction parameters are provided, store them in the session
+    session[:sort] = params[:sort] if params[:sort]
+    session[:direction] = params[:direction] if params[:direction]
+
+    # Use session values for sorting if they exist
+    sort = session[:sort] || 'title'
+    direction = session[:direction] || 'asc'
+
+    # Fetch sorted movies
+    @movies = Movie.order(sort => direction)
   end
+  #def index
+    #@movies = Movie.all
+  
+    #if params[:sort].present? && params[:direction].present?
+      #@movies = @movies.order("#{params[:sort]} #{params[:direction]}")
+    #end
+  #end
   
 
 
@@ -57,7 +69,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  
+
   private
 
   def movie_params
