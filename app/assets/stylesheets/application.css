@@ -105,3 +105,14 @@ th {
         font-size: 14px; /* Smaller buttons for smaller screens */
     }
 }
+
+th.sort-asc {
+    background-color: #cce5ff; /* Light blue for ascending */
+    color: #004085; /* Dark blue text */
+  }
+  
+  th.sort-desc {
+    background-color: #d4edda; /* Light green for descending */
+    color: #155724; /* Dark green text */
+  }
+  

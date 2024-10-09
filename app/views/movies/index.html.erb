@@ -3,26 +3,29 @@
 
 <table style="width: 100%; border-collapse: collapse;">
   <thead>
-    <tr style="background-color: #f8f9fa;">
-      <th class="<%= 'highlight' if session[:sort] == 'title' %>" 
+    <tr>
+      <th class="<%= 'sort-asc' if session[:sort] == 'title' && session[:direction] == 'asc' %>
+                 <%= 'sort-desc' if session[:sort] == 'title' && session[:direction] == 'desc' %>"
           data-direction="<%= session[:direction] if session[:sort] == 'title' %>">
         <%= link_to "Title #{sort_indicator('title', session[:sort], session[:direction])}".html_safe, 
                     movies_path(sort: 'title', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
-      <th class="<%= 'highlight' if session[:sort] == 'rating' %>" 
+      <th class="<%= 'sort-asc' if session[:sort] == 'rating' && session[:direction] == 'asc' %>
+                 <%= 'sort-desc' if session[:sort] == 'rating' && session[:direction] == 'desc' %>"
           data-direction="<%= session[:direction] if session[:sort] == 'rating' %>">
         <%= link_to "Rating #{sort_indicator('rating', session[:sort], session[:direction])}".html_safe, 
                     movies_path(sort: 'rating', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
       <th>Description</th>
-      <th class="<%= 'highlight' if session[:sort] == 'release_date' %>" 
+      <th class="<%= 'sort-asc' if session[:sort] == 'release_date' && session[:direction] == 'asc' %>
+                 <%= 'sort-desc' if session[:sort] == 'release_date' && session[:direction] == 'desc' %>"
           data-direction="<%= session[:direction] if session[:sort] == 'release_date' %>">
         <%= link_to "Release Date #{sort_indicator('release_date', session[:sort], session[:direction])}".html_safe, 
                     movies_path(sort: 'release_date', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
-      <th>Actions</th>
     </tr>
   </thead>
+
   <tbody>
     <% @movies.each do |movie| %>
       <tr style="border-bottom: 1px solid #ddd;">
