@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+/* Default highlight for sorted column */
+th.highlight {
+    background-color: #e0e0e0; /* Light gray */
+  }
+  
+  /* Additional colors based on sort direction */
+  th.highlight[data-direction="asc"] {
+    background-color: #a8d8a8; /* Light green for ascending */
+  }
+  
+  th.highlight[data-direction="desc"] {
+    background-color: #d8a8a8; /* Light red for descending */
+  }
+  

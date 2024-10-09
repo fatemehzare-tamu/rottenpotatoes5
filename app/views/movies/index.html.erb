@@ -3,15 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th>
-        <%= link_to "Title", movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if params[:sort] == 'title' %>" 
+          data-direction="<%= params[:direction] if params[:sort] == 'title' %>">
+        <%= link_to "Title #{sort_indicator('title', params[:sort], params[:direction])}".html_safe, 
+                    movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
-      <th>
-        <%= link_to "Rating", movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if params[:sort] == 'rating' %>" 
+          data-direction="<%= params[:direction] if params[:sort] == 'rating' %>">
+        <%= link_to "Rating #{sort_indicator('rating', params[:sort], params[:direction])}".html_safe, 
+                    movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
       <th>Description</th>
-      <th>
-        <%= link_to "Release Date", movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      <th class="<%= 'highlight' if params[:sort] == 'release_date' %>" 
+          data-direction="<%= params[:direction] if params[:sort] == 'release_date' %>">
+        <%= link_to "Release Date #{sort_indicator('release_date', params[:sort], params[:direction])}".html_safe, 
+                    movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
       </th>
     </tr>
   </thead>
