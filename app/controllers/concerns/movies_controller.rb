@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
     #@movies = Movie.order("#{@sort_column} #{@sort_direction}")
   #end
 
-  private
+  
 
   def sort_direction
     @sort_direction == 'asc' ? 'desc' : 'asc'
@@ -68,8 +68,20 @@ class MoviesController < ApplicationController
       render :edit
     end
   end
-
-
+  def destroy
+    @movie = Movie.find(params[:id])
+    if @movie.destroy
+      flash[:notice] = "Movie deleted successfully."
+    else
+      flash[:alert] = "Error deleting movie."
+    end
+    redirect_to movies_path
+  end
+  
+  def delete
+    @movie = Movie.find(params[:id])
+  end
+  
   private
 
   def movie_params

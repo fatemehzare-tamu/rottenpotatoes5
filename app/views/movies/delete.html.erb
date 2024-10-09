@@ -1,0 +1,15 @@
+<h1>Delete Movie</h1>
+
+<p>Are you sure you want to delete the following movie?</p>
+
+<h2><%= @movie.title %></h2>
+<p><strong>Rating:</strong> <%= @movie.rating %></p>
+<p><strong>Description:</strong> <%= @movie.description %></p>
+<p><strong>Release Date:</strong> <%= @movie.release_date %></p>
+
+<%= form_with(model: @movie, url: movie_path(@movie), method: :delete) do %>
+  <div>
+    <%= submit_tag 'Delete', class: 'btn btn-danger' %>
+    <%= link_to 'Cancel', movies_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

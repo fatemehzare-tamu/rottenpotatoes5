@@ -15,8 +15,14 @@
           data-direction="<%= session[:direction] if session[:sort] == 'rating' %>">
         <%= link_to "Rating #{sort_indicator('rating', session[:sort], session[:direction])}".html_safe, 
                     movies_path(sort: 'rating', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
+
       </th>
-      <th>Description</th>
+      <th class="<%= 'sort-asc' if session[:sort] == 'description' && session[:direction] == 'asc' %>
+                 <%= 'sort-desc' if session[:sort] == 'description' && session[:direction] == 'desc' %>"
+          data-direction="<%= session[:direction] if session[:sort] == 'description' %>">
+        <%= link_to "Description #{sort_indicator('description', session[:sort], session[:direction])}".html_safe, 
+                    movies_path(sort: 'description', direction: session[:direction] == 'asc' ? 'desc' : 'asc') %>
+      </th>
       <th class="<%= 'sort-asc' if session[:sort] == 'release_date' && session[:direction] == 'asc' %>
                  <%= 'sort-desc' if session[:sort] == 'release_date' && session[:direction] == 'desc' %>"
           data-direction="<%= session[:direction] if session[:sort] == 'release_date' %>">
@@ -34,8 +40,10 @@
         <td style="padding: 8px;"><%= movie.description %></td>
         <td style="padding: 8px;"><%= movie.release_date %></td>
         <td style="padding: 8px;">
-          <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-secondary' %>
-          <%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', movie_path(movie) ,class: 'btn btn-primary' %> |
+          <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-secondary' %> |
+          <%= link_to 'Delete', delete_movie_path(movie), class: 'btn btn-danger' %>
+          
         </td>
       </tr>
     <% end %>

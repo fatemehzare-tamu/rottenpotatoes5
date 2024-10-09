@@ -40,12 +40,15 @@ h1 {
 
 /* Button Styles */
 .btn {
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+    font-size: 16px; /* Consistent font size */
     display: inline-block; /* Make buttons inline */
     padding: 10px 15px; /* Button padding */
     margin-top: 10px; /* Space above buttons */
     border: none; /* No border */
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer */
+    text-decoration: none;
 }
 
 .btn-primary {
