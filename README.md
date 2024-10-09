@@ -1,24 +1,6 @@
-# README
+# RottenPotatoes5 App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my solution for the assignment. You can access the deployed app here:
 
-Things you may want to cover:
+[Heroku App](https://rottenpotatoes5-4813688855f1.herokuapp.com/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
