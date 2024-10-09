@@ -1,4 +1,5 @@
 # Seed the RottenPotatoes DB with some movies.
+Movie.destroy_all
 more_movies = [
   {:title => 'My Neighbor Totoro', :rating => 'G',
     :release_date => '16-Apr-1988'},
@@ -15,3 +16,14 @@ more_movies = [
 more_movies.each do |movie|
   Movie.create!(movie)
 end
+# db/seeds.rb
+Movie.create([
+  { title: 'Inception', rating: 'PG-13', release_date: '2010-07-16' },
+  { title: 'The Dark Knight', rating: 'PG-13', release_date: '2008-07-18' },
+  { title: 'Interstellar', rating: 'PG-13', release_date: '2014-11-07' },
+  { title: 'The Shawshank Redemption', rating: 'R', release_date: '1994-09-23' },
+  { title: 'Pulp Fiction', rating: 'R', release_date: '1994-10-14' },
+  { title: 'The Godfather', rating: 'R', release_date: '1972-03-24' }
+])
+
+puts "Movies created!"
