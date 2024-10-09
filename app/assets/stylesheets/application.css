@@ -73,23 +73,27 @@ body {
     color: #333;
   }
   
-  table {
-    width: 100%;
-    border-collapse: collapse; /* Collapse borders */
+  .form-group {
+    margin-bottom: 20px; /* Space between form groups */
   }
   
-  th {
-    background-color: #f8f9fa; /* Header background color */
-    padding: 10px; /* Padding in headers */
+  .form-label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Make labels bold */
   }
   
-  td {
-    padding: 8px; /* Padding in cells */
-    border-bottom: 1px solid #ddd; /* Bottom border for rows */
+  .form-control {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.2s; /* Transition for border color */
   }
   
-  .highlight {
-    background-color: #e7f1ff; /* Highlighted background for sorted column */
+  .form-control:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove outline */
   }
   
   .btn {
@@ -97,18 +101,12 @@ body {
     border-radius: 5px; /* Rounded corners */
   }
   
-  .btn-primary {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d; /* Bootstrap secondary color */
-    color: white;
-  }
-  
   .btn-success {
     background-color: #28a745; /* Bootstrap success color */
     color: white;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
   }
   
