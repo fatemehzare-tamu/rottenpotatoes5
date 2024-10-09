@@ -27,3 +27,81 @@ th.highlight {
     background-color: #d8a8a8; /* Light red for descending */
   }
   
+
+  /* app/assets/stylesheets/application.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8; /* Light background for better contrast */
+  color: #333;
+}
+
+.card {
+  transition: transform 0.3s; /* Add hover effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space between form fields */
+}
+
+.btn {
+  padding: 10px 15px; /* Button padding */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745; /* Bootstrap success color */
+  color: white;
+}
+/* app/assets/stylesheets/application.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Light background for better contrast */
+    color: #333;
+  }
+  
+  .card {
+    transition: transform 0.3s; /* Add hover effect */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Space between form fields */
+  }
+  
+  .btn {
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    color: white;
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Bootstrap success color */
+    color: white;
+  }
+  

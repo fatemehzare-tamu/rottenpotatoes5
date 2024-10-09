@@ -1,34 +1,16 @@
 <h1>Listing Movies</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th class="<%= 'highlight' if params[:sort] == 'title' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'title' %>">
-        <%= link_to "Title #{sort_indicator('title', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
-      </th>
-      <th class="<%= 'highlight' if params[:sort] == 'rating' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'rating' %>">
-        <%= link_to "Rating #{sort_indicator('rating', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
-      </th>
-      <th>Description</th>
-      <th class="<%= 'highlight' if params[:sort] == 'release_date' %>" 
-          data-direction="<%= params[:direction] if params[:sort] == 'release_date' %>">
-        <%= link_to "Release Date #{sort_indicator('release_date', params[:sort], params[:direction])}".html_safe, 
-                    movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc') %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.release_date %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="movie-list" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <% @movies.each do |movie| %>
+    <div class="card" style="border: 1px solid #ddd; margin: 10px; padding: 10px; border-radius: 8px; width: 200px;">
+      <h2><%= movie.title %></h2>
+      <p><strong>Rating:</strong> <%= movie.rating %></p>
+      <p><strong>Release Date:</strong> <%= movie.release_date %></p>
+      <p><%= movie.description %></p>
+      <div style="display: flex; justify-content: space-between;">
+        <%= link_to 'Show', movie_path(movie), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
