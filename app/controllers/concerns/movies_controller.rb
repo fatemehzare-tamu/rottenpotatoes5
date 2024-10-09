@@ -1,6 +1,15 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @sort_column = params[:sort] || 'title'
+    @sort_direction = params[:direction] || 'asc'
+    
+    @movies = Movie.order("#{@sort_column} #{@sort_direction}")
+  end
+
+  private
+
+  def sort_direction
+    @sort_direction == 'asc' ? 'desc' : 'asc'
   end
 
   def show
