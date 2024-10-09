@@ -73,16 +73,23 @@ body {
     color: #333;
   }
   
-  .card {
-    transition: transform 0.3s; /* Add hover effect */
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
   }
   
-  .card:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+  th {
+    background-color: #f8f9fa; /* Header background color */
+    padding: 10px; /* Padding in headers */
   }
   
-  .form-group {
-    margin-bottom: 15px; /* Space between form fields */
+  td {
+    padding: 8px; /* Padding in cells */
+    border-bottom: 1px solid #ddd; /* Bottom border for rows */
+  }
+  
+  .highlight {
+    background-color: #e7f1ff; /* Highlighted background for sorted column */
   }
   
   .btn {
